@@ -39,6 +39,7 @@ price:
 
 Use project lombok 
 
+
 Endpoints :
 Get all the rides
 Add new ride
@@ -47,6 +48,7 @@ Delete ride
 
 
 -Create end point that takes the ride ID and the amount and return (ticket purchased) and reduce ticket number by 1 (check for available tickets if its >0 , check if amount >= ride price)
+
 -Create end point that takes ride ID and refils its tickets (check if the tickets are 0 then you can refil)
 
 ## Create Employees management software
