@@ -1,0 +1,152 @@
+package com.example.employees.employees;
+
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+
+public class employee {
+
+    private ArrayList<String> employee = new ArrayList<>();
+
+    @RequestMapping("P1/employee")
+
+
+
+    @GetMapping
+
+    public ArrayList<String> getemployee() {
+
+        return employee;
+
+    }
+
+
+    @PostMapping()
+
+    public String addBookName(@RequestBody String P) {
+
+        employee.add(P);
+
+        return P;
+
+    }
+
+    @PutMapping
+
+    public String updatemployee(@PathVariable int index ,@RequestBody String P) {
+
+        employee.set(index, P);
+
+        return P;
+
+    }
+
+
+    @DeleteMapping
+
+    public String deleteemployee (@PathVariable int index) {
+
+        employee.remove(index);
+
+        return "Deleted is done";
+
+    }
+
+
+
+}
+-----------------------------
+
+package com.example.employees.employees;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+@AllArgsConstructor
+@Data
+class employ extends Object {
+
+    @NotNull(message = "Cannot be null")
+    @Size(min =2,max=10 ,message = "Length more than 2")
+    private int iD;
+    //--------------------------------------
+    @Size(min =4,max=20 ,message = "Length more than 4")
+    @NotNull(message = "Cannot be null")
+
+    private String name ;
+    //--------------------------------------------------
+    @NotNull(message = "Cannot be null")
+    @Max( value = 25,message = "It must be more than 25")
+    @Digits ( integer =10,fraction =2)
+
+    private int age;
+    //-------------------------------------------
+
+    private  boolean onLeave;
+    //----------------------------------------
+    @NotNull(message = "Cannot be null")
+    @Digits ( integer =10,fraction =2)
+
+
+    private int employmentYear;
+    //----------------------------------------
+    @NotNull(message = "Cannot be null")
+    @Digits ( integer =10,fraction =2)
+
+    private  int annualLeave;
+
+    public int getiD() {
+        return iD;
+    }
+
+    public void setiD(int iD) {
+        this.iD = iD;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public boolean isOnLeave() {
+        return onLeave;
+    }
+
+    public void setOnLeave(boolean onLeave) {
+        this.onLeave = onLeave;
+    }
+
+    public int getEmploymentYear() {
+        return employmentYear;
+    }
+
+    public void setEmploymentYear(int employmentYear) {
+        this.employmentYear = employmentYear;
+    }
+
+    public int getAnnualLeave() {
+        return annualLeave;
+    }
+
+    public void setAnnualLeave(int annualLeave) {
+        this.annualLeave = annualLeave;
+    }
+
+
+
+}
